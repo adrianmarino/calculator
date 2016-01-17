@@ -1,3 +1,6 @@
 #!/bin/bash
-antlr4 Calculator.g4
+GRAMMAR=$1
+echo "...build $GRAMMAR compiler"
+antlr4 $GRAMMAR.g4
+echo "...compile $GRAMMAR compiler"
 javac *.java

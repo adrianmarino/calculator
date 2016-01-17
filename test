@@ -1,3 +1,6 @@
 #!/bin/bash
-./build
-grun Calculator start -gui test.calculator
+GRAMMAR=$1
+TEST=$2
+./build $1
+echo "...parse $TEST with $GRAMMAR gramar"
+grun $GRAMMAR program -gui $TEST
