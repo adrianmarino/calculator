@@ -14,7 +14,7 @@ NEW_LINE      : '\r'?'\n';
 WS            : [ \t]+ -> skip;
 
 // Grammar rules:
-start: statement+;
+program: statement+;
 
 statement:  expression NEW_LINE
         |   IDENTIFIER EQUAL expression
