@@ -1,3 +1,32 @@
-first = 2 + 2
-second = - (1/2 * 1/2)
-first + second
+/*
+  Test 1
+*/
+// first  = 2 + 2
+/*
+  Test 2
+*/
+// second = (1/2 * 1/2)
+/*
+  Test 3
+*/
+// first + second
+/*
+  Test 4
+*/
+// fourth = 2 + 3 * 4
+/*
+  Test 5
+*/
+// fifth = 3 * 4 + 2
+/*
+  Test 6
+*/
+// sixth = - 4
+/*
+  Test 7
+*/
+// seventh = - (4 + 2)
+/*
+  Test 8
+*/
+eighth = - 3 * - 4

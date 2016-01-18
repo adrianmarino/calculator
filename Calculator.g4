@@ -1,29 +1,36 @@
 grammar Calculator;
 
 // Lexical rules:
+EQUAL         : '=';
 LEFT_PARENT   : '(';
 RIGHT_PARENT  : ')';
-MULTYPLY      : '*';
+MULTIPLY      : '*';
 DIVIDE        : '/';
-SUM           : '+';
-SUBSTRACT     : '-';
-IDENTIFIER    : [a-zA-Z]+;
+PLUS          : '+';
+MINUS         : '-';
+VARIABLE      : [a-zA-Z_][a-zA-Z_0-9]+;
 NUMBER        : [0-9]+;
-EQUAL         : '=';
 NEW_LINE      : '\r'?'\n';
 WS            : [ \t]+ -> skip;
+// Comments
+COMMENT       : '/*' (COMMENT|.)*? '*/' NEW_LINE? -> skip;
+LINE_COMMENT  : '//' .*? NEW_LINE -> skip;
 
 // Grammar rules:
-program: statement+;
+calculator
+  : statement+
+  ;
+statement
+  : expression NEW_LINE
+  | VARIABLE EQUAL expression NEW_LINE
+  | NEW_LINE
+  ;
 
-statement:  expression NEW_LINE
-        |   IDENTIFIER EQUAL expression
-        |   NEW_LINE
-        ;
-
-expression: expression (MULTYPLY | DIVIDE) expression
-        |   expression (SUM | SUBSTRACT) expression
-        |   LEFT_PARENT expression RIGHT_PARENT
-        |   NUMBER
-        |   IDENTIFIER
-        ;
+expression
+  : MINUS expression
+  | LEFT_PARENT expression RIGHT_PARENT
+  | expression operator=(MULTIPLY | DIVIDE) expression
+  | expression operator=(PLUS | MINUS) expression
+  | NUMBER
+  | VARIABLE
+  ;
