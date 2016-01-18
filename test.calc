@@ -1,32 +1,36 @@
 /*
   Test 1
 */
-// first  = 2 + 2
+first  = 2 + 2
 /*
   Test 2
 */
-// second = (1/2 * 1/2)
+second = (1/2 * 1/2)
 /*
   Test 3
 */
-// first + second
+first + second
 /*
   Test 4
 */
-// fourth = 2 + 3 * 4
+fourth = 2 + 3 * 4
 /*
   Test 5
 */
-// fifth = 3 * 4 + 2
+fifth = 3 * 4 + 2
 /*
   Test 6
 */
-// sixth = - 4
+sixth = - 4
 /*
   Test 7
 */
-// seventh = - (4 + 2)
+seventh = - (4 + 2)
 /*
   Test 8
 */
 eighth = - 3 * - 4
+/*
+  Test 9
+*/
+ninth = - 3.5 * - 4.9
