@@ -1,3 +1,8 @@
 *.java
 *.class
 *.tokens
+.idea/**/*
+out
+*.iml
+!Calculator.java
+!CalculatorVisitorImpl.java

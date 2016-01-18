@@ -9,7 +9,7 @@ MULTIPLY      : '*';
 DIVIDE        : '/';
 PLUS          : '+';
 MINUS         : '-';
-VARIABLE      : [a-zA-Z_][a-zA-Z_0-9]+;
+VARIABLE      : [a-zA-Z]+;
 NEW_LINE      : '\r'?'\n';
 WS            : [ \t]+ -> skip;
 
@@ -27,22 +27,20 @@ calculator
   : statement+
   ;
 statement
-  : expression NEW_LINE
-  | VARIABLE EQUAL expression NEW_LINE
-  | NEW_LINE
+  : expression NEW_LINE                                 # printStatement
+  | VARIABLE EQUAL expression NEW_LINE                  # assignStatement
+  | NEW_LINE                                            # blankStatement
   ;
-
 expression
-  : MINUS expression
-  | LEFT_PARENT expression RIGHT_PARENT
-  | expression operator=(MULTIPLY | DIVIDE) expression
-  | expression operator=(PLUS | MINUS) expression
-  | VARIABLE
-  | number
+  : MINUS expression                                    # minusExpression
+  | LEFT_PARENT expression RIGHT_PARENT                 # parenthesesExpression
+  | expression operator=(MULTIPLY | DIVIDE) expression  # multiplyDivideExpression
+  | expression operator=(PLUS | MINUS) expression       # addSubtractExpression
+  | VARIABLE                                            # variableExpression
+  | number                                              # numberExpression
   ;
-
 number
-  : DIGIT+('.'DIGIT)*
-  | '.'DIGIT+
-  | DIGIT+
+  : DIGIT+('.'DIGIT)*                                   # doubleNumber
+  | '.'DIGIT+                                           # doubleDecimalNumber
+  | DIGIT+                                              # integerNumber
   ;
