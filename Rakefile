@@ -4,7 +4,6 @@ require 'src/ruby/path'
 
 GRAMMAR = "Calculator"
 
-
 desc "Remove *.class and *.java files"
 task :clean do
   puts "clean"
