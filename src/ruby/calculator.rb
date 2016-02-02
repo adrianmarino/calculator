@@ -8,7 +8,7 @@ require 'calculator_visitor_impl'
 module Calculator
   extend self
 
-  def execute(input_path)
+  def eval(input_path)
     input_stream  = FileInputStream.new(input_path);
     input         = ANTLRInputStream.new(input_stream)
     lexer         = CalculatorLexer.new(input)
