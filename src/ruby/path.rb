@@ -1,9 +1,9 @@
 module Path
   extend self
 
-  Antlr_complete  = "/usr/share/java/antlr-complete.jar"
-  Grammar         = "grammar"
-  Build           = "build"
+  Antlr   = "/usr/share/java/antlr-complete.jar"
+  Grammar = "grammar"
+  Build   = "build"
 
   module Source
     Java = "src/java"
@@ -11,6 +11,6 @@ module Path
   end
 
   def classes
-    [Build, Antlr_complete].join(':')
+    [Build, Antlr].join(':')
   end
 end

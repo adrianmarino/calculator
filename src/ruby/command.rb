@@ -18,14 +18,13 @@ module Command
     self
   end
 
-  def grun(input_file, start_rule = 'program' )
-    `grun #{start_rule} -gui #{input_file}`
-    self
-  end
-
   def antlr_generate_source(grammar = GRAMMAR, output_path = Path::Source::Java)
     `cd #{Path::Grammar}; antlr4 -no-listener -visitor #{grammar}.g4 -o ../#{output_path}`
     self
+  end
+
+  def grun(input_file, grammar = GRAMMAR, start_rule = GRAMMAR.downcase )
+    exec `cd #{Path::Build}; grun #{grammar} #{start_rule} -gui ../#{input_file}`
   end
 
   def irb

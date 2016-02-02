@@ -15,7 +15,7 @@ task :build => :clean do |task, args|
 end
 
 task :tree, [:input_file] => :build do |task, args|
-  puts "Parse #{input_file} with #{GRAMMAR} gramar"
+  puts "parse tree"
   Command.grun(args[:input_file])
 end
 
