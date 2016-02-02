@@ -13,12 +13,12 @@ module Command
     self
   end
 
-  def javac(source_path = Path::Source::Java, output_path = Path::Build)
+  def javac(source_path = Path::Java_src, output_path = Path::Build)
     `javac #{source_path}/*.java -d #{output_path}`
     self
   end
 
-  def antlr_generate_source(grammar = GRAMMAR, output_path = Path::Source::Java)
+  def antlr_generate_source(grammar = GRAMMAR, output_path = Path::Java_src)
     `cd #{Path::Grammar}; antlr4 -no-listener -visitor #{grammar}.g4 -o ../#{output_path}`
     self
   end
@@ -32,6 +32,6 @@ module Command
   end
 
   def execute(command, class_path = Path.classes)
-    exec "ruby -J-cp #{class_path} -I #{Path::Source::Ruby} -S #{command.to_s}"
+    exec "ruby -J-cp #{class_path} -I #{Path::Ruby_src} -S #{command.to_s}"
   end
 end

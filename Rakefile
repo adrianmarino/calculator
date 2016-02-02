@@ -6,12 +6,12 @@ GRAMMAR = "Calculator"
 
 task :clean do
   puts "clean"
-  Command.rm_rf(Path::Build, Path::Source::Java)
+  Command.rm_rf(Path::Build, Path::Java_src)
 end
 
 task :build => :clean do |task, args|
   puts "build"
-  Command.mkdir_p(Path::Build, Path::Source::Java, Path::Source::Ruby).antlr_generate_source.javac
+  Command.mkdir_p(Path::Build, Path::Java_src, Path::Ruby_src).antlr_generate_source.javac
 end
 
 task :tree, [:input_file] => :build do |task, args|
@@ -25,5 +25,5 @@ end
 
 task :execute, [:input_file] => :build do |task, args|
   puts 'execute'
-  Command.execute("#{Path::Source::Ruby}/execute.rb #{args[:input_file]}")
+  Command.execute("#{Path::Ruby_src}/execute.rb #{args[:input_file]}")
 end
