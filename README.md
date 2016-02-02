@@ -1,14 +1,26 @@
 # Calculator
 antlr calculator
 
+###  Requisites
+
+* JRuby
+```bash
+rvm install jruby
+rvm use jruby
+```
+
+* Antlr4 (On Arch linux)
+```bash
+yaourt -S antlr4
+alias grun='java -cp .:/usr/share/java/antlr-complete.jar org.antlr.v4.runtime.misc.TestRig "$@"'
+```
+
 ###  Test
 
 ```bash
-rvm use jruby
-rake tree\[Calculator,tree.calc\]
+rake tree[tests/test2.calc]
 ```
 
 ```bash
-rvm use jruby
-rake execute\[Calculator,test1.calc\]
+rake execute[tests/test2.calc]
 ```
