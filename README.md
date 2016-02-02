@@ -24,3 +24,10 @@ rake tree[tests/test2.calc]
 ```bash
 rake execute[tests/test2.calc]
 ```
+
+```bash
+rake console
+> require 'calculator'
+> Calculator.execute('tests/test2.calc')
+ => [4.0, 0.25, 4.25, 14.0, 14.0, -4.0, -6.0, 12.0, 17.150000000000002, 2.0]
+```
