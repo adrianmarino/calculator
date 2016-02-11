@@ -31,3 +31,7 @@ rake console
 > Calculator.eval('tests/test2.calc')
  => [4.0, 0.25, 4.25, 14.0, 14.0, -4.0, -6.0, 12.0, 17.150000000000002, 2.0]
 ```
+
+## License
+
+Calculator is released under the [MIT License](http://www.opensource.org/licenses/MIT).
